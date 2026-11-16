@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraFrame Studio | Fotografía, Retablos, Marquetería & Sublimación</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B1120',
+                            navy: '#0F172A',
+                            card: '#1E293B',
+                            amber: '#D97706',
+                            gold: '#F59E0B',
+                            cream: '#FDFBF7',
+                            sand: '#F3EFE6'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(12px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-cream text-slate-800 font-sans antialiased selection:bg-amber-500 selection:text-white overflow-x-hidden">
+
+    <!-- ==================== HEADER / NAVBAR ==================== -->
+    <header class="sticky top-0 z-40 bg-brand-navy/95 backdrop-blur-md border-b border-slate-800 text-white shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- LOGOTIPO SVG PERSONALIZADO: AuraFrame Studio -->
+                <a href="#" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-600/10 border border-amber-500/40 flex items-center justify-center p-1.5 group-hover:scale-105 transition-transform duration-300 shadow-inner">
+                        <!-- SVG Vectorial: Marco de retablo + Lente de cámara + Destello de luz/IA -->
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                            <!-- Marco exterior de retablo con bisel dorado -->
+                            <rect x="6" y="10" width="52" height="44" rx="7" stroke="url(#goldGrad)" stroke-width="3.5"/>
+                            <!-- Marco interior (passepartout) -->
+                            <rect x="12" y="16" width="40" height="32" rx="3" stroke="#F8FAFC" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="3 2"/>
+                            <!-- Visor superior de cámara -->
+                            <path d="M24 10L26.5 6H37.5L40 10" stroke="url(#goldGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Lente fotográfico central -->
+                            <circle cx="32" cy="32" r="10.5" stroke="url(#goldGrad)" stroke-width="3"/>
+                            <!-- Obturador interno -->
+                            <circle cx="32" cy="32" r="5" fill="url(#goldGrad)" fill-opacity="0.85"/>
+                            <!-- Destello de luz / Creatividad IA -->
+                            <path d="M47 17L48.2 20.8L52 22L48.2 23.2L47 27L45.8 23.2L42 22L45.8 20.8L47 17Z" fill="#FBBF24"/>
+                            <circle cx="19" cy="22" r="1.5" fill="#FBBF24"/>
+                            <defs>
+                                <linearGradient id="goldGrad" x1="6" y1="6" x2="58" y2="54" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FBBF24"/>
+                                    <stop offset="0.5" stop-color="#D97706"/>
+                                    <stop offset="1" stop-color="#B45309"/>
+                                </linearGradient>
+                            </defs>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white leading-none">
+                            AuraFrame <span class="text-amber-400">Studio</span>
+                        </span>
+                        <span class="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-slate-400 font-medium mt-0.5">
+                            Arte Fotográfico & Sublimación
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegación Desktop -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium">
+                    <a href="#inicio" class="text-slate-200 hover:text-amber-400 transition-colors">Inicio</a>
+                    <a href="#nosotros" class="text-slate-200 hover:text-amber-400 transition-colors">Nosotros</a>
+                    <a href="#catalogo" class="text-slate-200 hover:text-amber-400 transition-colors">Catálogo</a>
+                    <a href="#personalizador-cta" class="text-slate-200 hover:text-amber-400 transition-colors">Estudio IA</a>
+                    <a href="#contacto" class="text-slate-200 hover:text-amber-400 transition-colors">Contacto</a>
+                    
+                    <!-- Botón Bitácora IA (Requerimiento Rúbrica Universitaria) -->
+                    <button onclick="openRubricModal()" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 hover:bg-amber-500 hover:text-slate-950 transition-all duration-300 text-xs font-semibold shadow-sm">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <span>Bitácora IA & Proyecto</span>
+                    </button>
+                </nav>
+
+                <!-- Acciones Derecha: Carrito y Menú Móvil -->
+                <div class="flex items-center gap-3">
+                    <!-- Botón Bitácora IA en Tablet/Móvil compacto -->
+                    <button onclick="openRubricModal()" title="Bitácora IA y Documentación" class="lg:hidden inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-semibold">
+                        <i class="fa-solid fa-robot"></i>
+                        <span class="hidden sm:inline">Bitácora IA</span>
+                    </button>
+
+                    <!-- Botón Carrito -->
+                    <button onclick="toggleCart()" aria-label="Abrir carrito de compras" class="relative p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-100 border border-slate-700 transition-all duration-200 group">
+                        <i class="fa-solid fa-bag-shopping text-lg group-hover:text-amber-400 transition-colors"></i>
+                        <span id="cart-badge" class="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-md transition-transform duration-200">
+                            0
+                        </span>
+                    </button>
+
+                    <!-- Botón Hamburguesa Móvil -->
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Menú principal" class="lg:hidden p-2.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-200 border border-slate-700 focus:outline-none">
+                        <i id="mobile-menu-icon" class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-brand-navy border-t border-slate-800 px-4 pt-3 pb-6 space-y-2 shadow-2xl">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Inicio</a>
+            <a href="#nosotros" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Sobre Nosotros</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Catálogo de Productos</a>
+            <a href="#personalizador-cta" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Estudio de Personalización IA</a>
+            <a href="#contacto" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Contacto y Ubicación</a>
+            <div class="pt-2 border-t border-slate-800">
+                <button onclick="toggleMobileMenu(); openRubricModal();" class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold text-sm shadow-md">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    <span>Ver Bitácora IA, Prompts, Git & Notion</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="inicio" class="relative bg-brand-navy text-white overflow-hidden">
+        <!-- Patrón decorativo de fondo -->
+        <div class="absolute inset-0 opacity-20 pointer-events-none">
+            <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-500 rounded-full blur-[130px]"></div>
+            <div class="absolute bottom-0 right-0 w-[30rem] h-[30rem] bg-blue-600 rounded-full blur-[150px]"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Copywriting -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-amber-500/30 text-amber-400 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        <span>Artesanía en Marquetería + Restauración Fotográfica con IA</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] text-white">
+                        Inmortaliza tus recuerdos en <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-amber-400 to-amber-600">piezas de galería</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        En <strong class="text-white">AuraFrame Studio</strong> transformamos tus fotografías favoritas en retablos laminados de alta durabilidad, marquetería en madera certificada y artículos sublimados personalizados con mejora inteligente de resolución.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#catalogo" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-base shadow-lg shadow-amber-500/25 transition-all duration-300 flex items-center justify-center gap-2">
+                            <span>Explorar Catálogo</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <button onclick="openQuickView(1)" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slate-800/80 hover:bg-slate-800 text-white border border-slate-700 hover:border-amber-500/50 font-semibold text-base transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+                            <span>Probar Personalizador</span>
+                        </button>
+                    </div>
+
+                    <!-- Métricas de confianza -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-serif font-bold text-amber-400">+2.500</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Retablos entregados</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-serif font-bold text-amber-400">4K IA</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Mejora de nitidez gratis</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-serif font-bold text-amber-400">24-48h</p>
+                            <p class="text-xs text-slate-400 mt-0.5">Envíos en Bogotá y país</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Composición Visual de Galería -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Marco principal flotante -->
+                        <div class="relative rounded-2xl p-3 bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/80 shadow-2xl animate-float">
+                            <div class="rounded-xl overflow-hidden aspect-[4/5] relative">
+                                <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=900&q=80" 
+                                     onerror="this.src='https://placehold.co/600x750/1e293b/f59e0b?text=AuraFrame+Galeria'"
+                                     alt="Composición de cuadros y retablos fotográficos en sala moderna" 
+                                     class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                                <div class="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white">
+                                    <div>
+                                        <span class="text-xs uppercase tracking-wider text-amber-400 font-semibold">Colección Destacada</span>
+                                        <p class="font-serif text-lg font-bold">Muro Galería Tríptico Roble</p>
+                                    </div>
+                                    <span class="px-3 py-1 rounded-lg bg-amber-500 text-slate-950 text-xs font-bold">
+                                        Desde $89.900
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta flotante secundaria (Sublimación) -->
+                        <div class="hidden sm:flex items-center gap-3 absolute -bottom-6 -left-6 bg-white text-slate-900 p-3.5 rounded-2xl shadow-xl border border-slate-100 max-w-[240px]">
+                            <img src="https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=200&q=80" 
+                                 onerror="this.src='https://placehold.co/100x100/d97706/ffffff?text=Mug'"
+                                 alt="Mug sublimado" class="w-14 h-14 rounded-xl object-cover">
+                            <div>
+                                <p class="text-xs font-bold text-amber-600 uppercase">Sublimación HD</p>
+                                <p class="text-sm font-bold leading-tight">Mugs, Termos & Cojines</p>
+                                <p class="text-xs text-slate-500 mt-0.5">Colores vivos resistentes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN SOBRE NOSOTROS (CONCEPTUALIZACIÓN DEL EMPRENDIMIENTO) ==================== -->
+    <section id="nosotros" class="py-20 bg-brand-cream border-b border-amber-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Encabezado de Sección -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-amber-600 font-bold text-xs uppercase tracking-[0.2em]">Nuestra Esencia & Propuesta de Valor</span>
+                <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-2">
+                    Fusión entre tradición artesanal e Inteligencia Artificial
+                </h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg leading-relaxed">
+                    Nacimos en Bogotá con una misión clara: democratizar el arte personalizado de alta gama. Combinamos carpintería y marquetería de precisión con modelos de IA generativa y restauración de imagen para que cada recuerdo luzca impecable.
+                </p>
+            </div>
+
+            <!-- Grid de 4 Pilares de Conceptualización -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Pilar 1: Misión -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-amber-500/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Nuestra Misión</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Convertir momentos digitales efímeros en piezas físicas tangibles de calidad museo, brindando asesoría creativa asistida por IA y acabados resistentes al paso del tiempo.
+                    </p>
+                </div>
+
+                <!-- Pilar 2: Propuesta de Valor -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-amber-500/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Propuesta de Valor</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        <strong>Optimización IA incluida:</strong> escalamos fotos de celular a resolución de impresión, eliminamos ruido y ofrecemos vista previa en tiempo real antes de fabricar tu retablo o sublimación.
+                    </p>
+                </div>
+
+                <!-- Pilar 3: Público Objetivo -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-amber-500/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Público Objetivo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Familias que decoran su hogar, parejas buscando regalos emotivos, fotógrafos independientes, artistas digitales y empresas que requieren regalos corporativos sublimados premium.
+                    </p>
+                </div>
+
+                <!-- Pilar 4: Proceso Creativo -->
+                <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200/80 hover:shadow-md hover:border-amber-500/40 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center text-xl mb-5">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3 class="font-serif text-xl font-bold text-slate-900 mb-2">Proceso Creativo</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        1. Subes tu foto o idea.<br>
+                        2. Procesamos color y nitidez con IA.<br>
+                        3. Impresión pigmentada UV o sublimación térmica.<br>
+                        4. Ensamble artesanal en madera y envío seguro.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== CATÁLOGO DE PRODUCTOS INTERACTIVO ==================== -->
+    <section id="catalogo" class="py-20 bg-brand-sand/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Título y Barra de Búsqueda / Filtros -->
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-amber-600 font-bold text-xs uppercase tracking-[0.2em]">Tienda Online</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-1">
+                        Catálogo de Productos
+                    </h2>
+                    <p class="text-slate-600 text-sm sm:text-base mt-2">
+                        Selecciona una categoría o personaliza cualquier producto haciendo clic en <span class="font-semibold text-slate-800">"Personalizar / Vista Rápida"</span>.
+                    </p>
+                </div>
+
+                <!-- Buscador rápido -->
+                <div class="relative w-full md:w-72">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="search-input" oninput="filterProducts()" placeholder="Buscar retablo, mug, marco..." 
+                           class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-all">
+                </div>
+            </div>
+
+            <!-- Botones de Filtro por Categoría -->
+            <div class="flex flex-wrap items-center gap-2.5 mb-10" id="category-filters">
+                <button onclick="setCategory('todos')" data-cat="todos" class="cat-btn active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-900 text-white shadow-md">
+                    Todos los Productos
+                </button>
+                <button onclick="setCategory('retablos')" data-cat="retablos" class="cat-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-amber-500">
+                    <i class="fa-regular fa-image mr-1.5 text-amber-600"></i>Retablos y Cuadros
+                </button>
+                <button onclick="setCategory('marqueteria')" data-cat="marqueteria" class="cat-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-amber-500">
+                    <i class="fa-solid fa-border-all mr-1.5 text-amber-600"></i>Marquetería a Medida
+                </button>
+                <button onclick="setCategory('sublimacion')" data-cat="sublimacion" class="cat-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-amber-500">
+                    <i class="fa-solid fa-mug-hot mr-1.5 text-amber-600"></i>Sublimación Personalizada
+                </button>
+                <button onclick="setCategory('fotografia')" data-cat="fotografia" class="cat-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-amber-500">
+                    <i class="fa-solid fa-camera-retro mr-1.5 text-amber-600"></i>Fotografía Impresa
+                </button>
+            </div>
+
+            <!-- Contenedor Grid de Productos (Renderizado dinámico por JS) -->
+            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Las tarjetas de producto se insertan aquí vía JavaScript -->
+            </div>
+
+            <!-- Estado vacío si no hay coincidencias -->
+            <div id="no-results" class="hidden text-center py-16 bg-white rounded-2xl border border-slate-200">
+                <i class="fa-regular fa-face-frown text-4xl text-slate-400 mb-3"></i>
+                <h3 class="font-serif text-xl font-bold text-slate-800">No encontramos productos con esa búsqueda</h3>
+                <p class="text-slate-500 text-sm mt-1">Intenta con otro término o restablece los filtros.</p>
+                <button onclick="resetFilters()" class="mt-4 px-5 py-2 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm hover:bg-amber-400 transition">
+                    Ver todo el catálogo
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== BANNER ESTUDIO DE PERSONALIZACIÓN IA ==================== -->
+    <section id="personalizador-cta" class="py-16 bg-brand-navy text-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-amber-500/30 rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="space-y-4 max-w-2xl text-center lg:text-left">
+                    <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-sparkles"></i> Tecnología Exclusiva AuraFrame
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">
+                        ¿Tienes una foto antigua o pixelada? <span class="text-amber-400">Nuestra IA la restaura gratis</span>
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        Antes de imprimir tu retablo o sublimar tu mug, nuestro motor de Inteligencia Artificial mejora el enfoque facial, equilibra la iluminación y previsualiza cómo lucirá con diferentes molduras de madera.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 shrink-0">
+                    <button onclick="openQuickView(1)" class="px-7 py-4 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm sm:text-base shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-image"></i>
+                        <span>Simular mi Foto en un Marco</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SECCIÓN DE CONTACTO Y UBICACIÓN ==================== -->
+    <section id="contacto" class="py-20 bg-brand-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Información de Contacto -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div>
+                        <span class="text-amber-600 font-bold text-xs uppercase tracking-[0.2em]">Hablemos de tu proyecto</span>
+                        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-slate-900 mt-1">
+                            Contáctanos o visítanos en nuestro taller
+                        </h2>
+                        <p class="text-slate-600 text-sm sm:text-base mt-3 leading-relaxed">
+                            ¿Necesitas medidas especiales de marquetería o pedidos corporativos de sublimación al por mayor? Escríbenos y te asesoramos de inmediato.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2">
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Taller & Showroom Bogotá</h4>
+                                <p class="text-slate-600 text-sm mt-0.5">Cra. 15 # 85 - 42, Local 104, Zona Rosa, Bogotá D.C., Colombia</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Línea Directa & WhatsApp</h4>
+                                <p class="text-slate-600 text-sm mt-0.5">+57 (310) 489-7210 • Lun a Sáb: 9:00 AM - 7:00 PM</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Correo Electrónico</h4>
+                                <p class="text-slate-600 text-sm mt-0.5">hola@auraframestudio.co • pedidos@auraframestudio.co</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario de Contacto Funcional -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-200/80">
+                        <h3 class="font-serif text-2xl font-bold text-slate-900 mb-2">Envíanos tu cotización o consulta</h3>
+                        <p class="text-slate-500 text-sm mb-6">Completa los datos y nuestro equipo responderá en menos de 2 horas hábiles.</p>
+
+                        <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="contact-name" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Nombre Completo *</label>
+                                    <input type="text" id="contact-name" required placeholder="Ej. Camila Rodríguez"
+                                           class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all">
+                                </div>
+                                <div>
+                                    <label for="contact-email" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Correo Electrónico *</label>
+                                    <input type="email" id="contact-email" required placeholder="camila@ejemplo.com"
+                                           class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="contact-phone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Teléfono / WhatsApp</label>
+                                    <input type="tel" id="contact-phone" placeholder="+57 300 123 4567"
+                                           class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all">
+                                </div>
+                                <div>
+                                    <label for="contact-service" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Línea de Interés *</label>
+                                    <select id="contact-service" required
+                                            class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all">
+                                        <option value="Retablos Fotográficos">Retablos y Cuadros Decorativos</option>
+                                        <option value="Marquetería a Medida">Marquetería a Medida (Madera / Flotante)</option>
+                                        <option value="Sublimación Personalizada">Sublimación (Mugs, Camisetas, Termos)</option>
+                                        <option value="Impresión Fotográfica">Impresión Fotográfica Profesional</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="contact-message" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Detalles de tu pedido o mensaje *</label>
+                                <textarea id="contact-message" rows="4" required placeholder="Cuéntanos medidas aproximadas, cantidad o si deseas restauración con IA..."
+                                          class="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-300 text-sm focus:outline-none focus:border-amber-500 focus:bg-white transition-all"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-slate-900 hover:bg-amber-600 text-white font-bold text-sm sm:text-base shadow-md transition-all duration-300 flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i>
+                                <span>Enviar Mensaje</span>
+                            </button>
+                        </form>
+
+                        <!-- Mensaje de Confirmación (Oculto por defecto) -->
+                        <div id="contact-success" class="hidden mt-6 p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-emerald-600 text-xl mt-0.5"></i>
+                            <div>
+                                <h4 class="font-bold text-sm">¡Mensaje enviado con éxito!</h4>
+                                <p class="text-xs mt-1">Gracias por contactar a <strong>AuraFrame Studio</strong>. Hemos recibido tu solicitud y te responderemos muy pronto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER COMPLETO ==================== -->
+    <footer class="bg-brand-dark text-slate-300 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                
+                <!-- Columna 1: Logo y Descripción -->
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-center p-1.5">
+                            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
+                                <rect x="6" y="10" width="52" height="44" rx="7" stroke="#F59E0B" stroke-width="3.5"/>
+                                <path d="M24 10L26.5 6H37.5L40 10" stroke="#F59E0B" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="32" cy="32" r="10.5" stroke="#F59E0B" stroke-width="3"/>
+                                <circle cx="32" cy="32" r="5" fill="#FBBF24"/>
+                                <path d="M47 17L48.2 20.8L52 22L48.2 23.2L47 27L45.8 23.2L42 22L45.8 20.8L47 17Z" fill="#FBBF24"/>
+                            </svg>
+                        </div>
+                        <span class="font-serif text-xl font-bold text-white">AuraFrame <span class="text-amber-400">Studio</span></span>
+                    </a>
+                    <p class="text-sm text-slate-400 leading-relaxed">
+                        Estudio creativo especializado en retablos fotográficos, marquetería artesanal y sublimación de alta definición potenciada por Inteligencia Artificial.
+                    </p>
+                    <div class="flex items-center gap-3 pt-1">
+                        <a href="#contacto" aria-label="Instagram" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#contacto" aria-label="Facebook" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#contacto" aria-label="TikTok" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                        <a href="#contacto" aria-label="WhatsApp" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-amber-500 hover:text-slate-950 flex items-center justify-center transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Columna 2: Categorías -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Productos</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li><a href="#catalogo" onclick="setCategory('retablos')" class="hover:text-amber-400 transition-colors">Retablos Laminados Mate & Brillo</a></li>
+                        <li><a href="#catalogo" onclick="setCategory('marqueteria')" class="hover:text-amber-400 transition-colors">Marquetería en Madera Natural</a></li>
+                        <li><a href="#catalogo" onclick="setCategory('sublimacion')" class="hover:text-amber-400 transition-colors">Mugs Mágicos y Termos Sublimados</a></li>
+                        <li><a href="#catalogo" onclick="setCategory('sublimacion')" class="hover:text-amber-400 transition-colors">Cojines y Camisetas Personalizadas</a></li>
+                        <li><a href="#catalogo" onclick="setCategory('fotografia')" class="hover:text-amber-400 transition-colors">Impresión Fotográfica & Polaroids</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Proyecto Universitario & Entregables Rúbrica -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Entregables Electiva IA</h4>
+                    <ul class="space-y-2.5 text-sm text-slate-400">
+                        <li>
+                            <button onclick="openRubricModal('prompts')" class="hover:text-amber-400 transition-colors flex items-center gap-2 text-left">
+                                <i class="fa-solid fa-terminal text-amber-500 text-xs"></i>
+                                <span>Ingeniería de Prompts (5 Prompts)</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openRubricModal('github')" class="hover:text-amber-400 transition-colors flex items-center gap-2 text-left">
+                                <i class="fa-brands fa-github text-amber-500 text-xs"></i>
+                                <span>Repositorio Git & GitHub Pages</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openRubricModal('notion')" class="hover:text-amber-400 transition-colors flex items-center gap-2 text-left">
+                                <i class="fa-solid fa-list-check text-amber-500 text-xs"></i>
+                                <span>Gestión del Proyecto en Notion</span>
+                            </button>
+                        </li>
+                        <li>
+                            <button onclick="openRubricModal('rubrica')" class="hover:text-amber-400 transition-colors flex items-center gap-2 text-left">
+                                <i class="fa-solid fa-award text-amber-500 text-xs"></i>
+                                <span>Autoevaluación de Rúbrica (100%)</span>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Enlaces Rápidos de Entregables -->
+                <div>
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider mb-4">Accesos del Equipo</h4>
+                    <p class="text-xs text-slate-400 mb-4 leading-relaxed">
+                        Proyecto Final — Electiva 1: Herramientas de IA para la Transformación Digital.
+                    </p>
+                    <div class="space-y-2.5">
+                        <a href="https://github.com/auraframe-studio/tienda-fotografia-ia" target="_blank" rel="noopener noreferrer" 
+                           class="w-full px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-semibold flex items-center justify-between transition-all">
+                            <span class="flex items-center gap-2"><i class="fa-brands fa-github text-base"></i> Repositorio GitHub</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                        <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer" 
+                           class="w-full px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white text-xs font-semibold flex items-center justify-between transition-all">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-book-open text-amber-400"></i> Espacio Notion</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-slate-400"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mt-12 pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+                <p>&copy; 2026 AuraFrame Studio Colombia. Todos los derechos reservados.</p>
+                <p>Desarrollado con HTML5, Tailwind CSS, JavaScript & Herramientas de IA.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== DRAWER LATERAL: CARRITO DE COMPRAS ==================== -->
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-slate-950/60 backdrop-blur-xs z-50 hidden transition-opacity"></div>
+    <aside id="cart-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Header Carrito -->
+        <div class="px-6 py-5 bg-brand-navy text-white flex items-center justify-between border-b border-slate-800">
+            <div class="flex items-center gap-2.5">
+                <i class="fa-solid fa-bag-shopping text-amber-400 text-lg"></i>
+                <h3 class="font-serif text-xl font-bold">Tu Carrito</h3>
+                <span id="cart-header-count" class="text-xs bg-slate-800 text-amber-400 px-2.5 py-0.5 rounded-full font-semibold">0 ítems</span>
+            </div>
+            <button onclick="toggleCart()" aria-label="Cerrar carrito" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Lista de Productos en Carrito -->
+        <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+            <!-- Renderizado dinámico por JS -->
+        </div>
+
+        <!-- Footer del Carrito (Totales y Checkout) -->
+        <div id="cart-footer" class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+            <div class="space-y-1.5 text-sm">
+                <div class="flex justify-between text-slate-600">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal" class="font-semibold text-slate-900">$0</span>
+                </div>
+                <div class="flex justify-between text-slate-600">
+                    <span>Envío (Gratis en compras +$150.000)</span>
+                    <span id="cart-shipping" class="font-semibold text-slate-900">$12.000</span>
+                </div>
+                <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-slate-200">
+                    <span>Total Estimado (COP)</span>
+                    <span id="cart-total" class="text-amber-600 text-lg">$0</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 gap-2.5">
+                <button onclick="checkoutWhatsApp()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>Finalizar Pedido por WhatsApp</span>
+                </button>
+                <button onclick="simulateDirectOrder()" class="w-full py-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-credit-card text-amber-400"></i>
+                    <span>Simular Pago Online</span>
+                </button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ==================== MODAL: VISTA RÁPIDA Y PERSONALIZADOR CON SIMULACIÓN DE FOTO ==================== -->
+    <div id="quickview-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/75 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-200 my-8 animate-fade-in">
+            <!-- Header Modal -->
+            <div class="px-6 py-4 bg-brand-navy text-white flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-wand-magic-sparkles text-amber-400"></i>
+                    <span class="font-serif font-bold text-lg">Estudio de Personalización & Vista Rápida</span>
+                </div>
+                <button onclick="closeQuickView()" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Cuerpo del Modal -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 p-6 sm:p-8">
+                
+                <!-- Columna Izquierda: Previsualización en Vivo con Marco Configurable -->
+                <div class="md:col-span-6 flex flex-col items-center justify-center bg-slate-100 rounded-2xl p-6 border border-slate-200 relative">
+                    <span class="absolute top-3 left-3 px-2.5 py-1 rounded-md bg-slate-900/80 text-white text-[11px] font-semibold">
+                        Vista Previa en Vivo
+                    </span>
+
+                    <!-- Contenedor que simula el marco de marquetería -->
+                    <div id="preview-frame-wrapper" class="transition-all duration-300 shadow-2xl p-3 bg-slate-900 rounded-lg max-w-[280px] w-full aspect-square flex items-center justify-center overflow-hidden">
+                        <img id="qv-image" src="" alt="Previsualización del producto" class="w-full h-full object-cover transition-all duration-300">
+                    </div>
+
+                    <!-- Controles de Simulación: Subir Foto y Activar Mejora IA -->
+                    <div class="w-full mt-5 space-y-3">
+                        <div class="flex flex-wrap items-center justify-center gap-2">
+                            <label class="cursor-pointer px-3.5 py-2 rounded-xl bg-white hover:bg-amber-50 border border-slate-300 hover:border-amber-500 text-xs font-bold text-slate-800 flex items-center gap-1.5 transition shadow-xs">
+                                <i class="fa-solid fa-upload text-amber-600"></i>
+                                <span>Subir mi foto</span>
+                                <input type="file" id="custom-photo-input" accept="image/*" onchange="handleCustomPhotoUpload(event)" class="hidden">
+                            </label>
+
+                            <button type="button" id="ai-enhance-btn" onclick="toggleAIEnhance()" class="px-3.5 py-2 rounded-xl bg-slate-900 text-amber-400 hover:bg-slate-800 text-xs font-bold flex items-center gap-1.5 transition shadow-xs">
+                                <i class="fa-solid fa-sparkles"></i>
+                                <span id="ai-enhance-text">Simular Mejora IA 4K</span>
+                            </button>
+                        </div>
+                        <p id="ai-status-msg" class="text-[11px] text-center text-slate-500">
+                            Sube una imagen de tu dispositivo para probar cómo lucirá impresa.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Opciones y Compra -->
+                <div class="md:col-span-6 flex flex-col justify-between space-y-5">
+                    <div>
+                        <span id="qv-category" class="text-xs font-bold uppercase tracking-wider text-amber-600">Categoría</span>
+                        <h3 id="qv-title" class="font-serif text-2xl font-bold text-slate-900 mt-1">Nombre del Producto</h3>
+                        <p id="qv-price" class="text-2xl font-bold text-slate-900 mt-2">$0</p>
+                        <p id="qv-desc" class="text-sm text-slate-600 mt-3 leading-relaxed">Descripción detallada del producto.</p>
+
+                        <!-- Selector de Tamaño / Variante -->
+                        <div class="mt-5">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">1. Selecciona Tamaño / Presentación:</label>
+                            <div id="qv-variants" class="grid grid-cols-2 gap-2">
+                                <!-- Botones de variantes generados dinámicamente -->
+                            </div>
+                        </div>
+
+                        <!-- Selector de Acabado del Marco -->
+                        <div class="mt-4">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">2. Acabado / Moldura Visual:</label>
+                            <div class="flex flex-wrap gap-2">
+                                <button type="button" onclick="setFrameStyle('negro')" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold flex items-center gap-1.5 hover:border-amber-500">
+                                    <span class="w-3 h-3 rounded-full bg-slate-900 inline-block"></span> Negro Mate
+                                </button>
+                                <button type="button" onclick="setFrameStyle('roble')" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold flex items-center gap-1.5 hover:border-amber-500">
+                                    <span class="w-3 h-3 rounded-full bg-amber-700 inline-block"></span> Madera Roble
+                                </button>
+                                <button type="button" onclick="setFrameStyle('dorado')" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold flex items-center gap-1.5 hover:border-amber-500">
+                                    <span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span> Dorado Galería
+                                </button>
+                                <button type="button" onclick="setFrameStyle('sin-marco')" class="px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold flex items-center gap-1.5 hover:border-amber-500">
+                                    <span class="w-3 h-3 rounded-full bg-slate-200 border border-slate-400 inline-block"></span> Sin Borde (Retablo)
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Nota de dedicatoria opcional -->
+                        <div class="mt-4">
+                            <label for="qv-note" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">3. Texto o Dedicatoria (Opcional):</label>
+                            <input type="text" id="qv-note" placeholder="Ej. Feliz Aniversario • 15/11/2026" class="w-full px-3.5 py-2 rounded-xl bg-slate-50 border border-slate-300 text-xs focus:outline-none focus:border-amber-500">
+                        </div>
+                    </div>
+
+                    <button id="qv-add-btn" class="w-full py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Agregar Producto Personalizado al Carrito</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== MODAL: BITÁCORA IA & RÚBRICA UNIVERSITARIA ==================== -->
+    <div id="rubric-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto">
+        <div class="bg-white rounded-3xl max-w-5xl w-full overflow-hidden shadow-2xl border border-slate-200 my-6 animate-fade-in">
+            
+            <!-- Header del Modal Académico -->
+            <div class="px-6 py-5 bg-brand-navy text-white flex items-center justify-between border-b border-slate-800">
+                <div>
+                    <span class="text-[11px] uppercase tracking-widest text-amber-400 font-bold">Electiva 1: Herramientas de IA para la Transformación Digital</span>
+                    <h3 class="font-serif text-xl sm:text-2xl font-bold mt-0.5">Bitácora IA, Prompts & Evidencias del Proyecto</h3>
+                </div>
+                <button onclick="closeRubricModal()" class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Pestañas de Navegación Interna -->
+            <div class="bg-slate-100 px-6 pt-3 border-b border-slate-200 flex flex-wrap gap-2">
+                <button onclick="switchRubricTab('prompts')" id="tab-prompts" class="rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold bg-white text-slate-900 border-t border-x border-slate-200">
+                    <i class="fa-solid fa-terminal text-amber-600 mr-1.5"></i>1. Ingeniería de Prompts (5)
+                </button>
+                <button onclick="switchRubricTab('github')" id="tab-github" class="rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900">
+                    <i class="fa-brands fa-github text-slate-800 mr-1.5"></i>2. Git & GitHub
+                </button>
+                <button onclick="switchRubricTab('notion')" id="tab-notion" class="rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-list-check text-amber-600 mr-1.5"></i>3. Gestión en Notion
+                </button>
+                <button onclick="switchRubricTab('rubrica')" id="tab-rubrica" class="rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900">
+                    <i class="fa-solid fa-check-double text-emerald-600 mr-1.5"></i>4. Cumplimiento Rúbrica
+                </button>
+            </div>
+
+            <!-- Contenido de las Pestañas -->
+            <div class="p-6 sm:p-8 max-h-[70vh] overflow-y-auto space-y-6">
+                
+                <!-- PESTAÑA 1: 5 PROMPTS DOCUMENTADOS -->
+                <div id="content-prompts" class="rubric-content space-y-4">
+                    <p class="text-sm text-slate-600">
+                        A continuación se documentan los <strong>5 prompts principales</strong> utilizados durante las fases de conceptualización, identidad visual, copywriting comercial, desarrollo web y optimización funcional del emprendimiento <strong>AuraFrame Studio</strong>:
+                    </p>
+
+                    <!-- Prompt 1 -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-700 text-xs font-bold">Prompt #1 • Conceptualización del Negocio</span>
+                            <span class="text-xs text-slate-500 font-medium">Herramienta: LLM (Gemini / ChatGPT)</span>
+                        </div>
+                        <p class="text-xs text-slate-700"><strong>Propósito:</strong> Definir el modelo de negocio, propuesta de valor diferencial con IA y líneas de producto para una tienda de fotografía y sublimación en Colombia.</p>
+                        <div class="p-3 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs leading-relaxed">
+                            "Actúa como consultor de e-commerce y transformación digital. Crea la conceptualización de un emprendimiento colombiano llamado 'AuraFrame Studio' dedicado a fotografía impresa, retablos laminados, marquetería a medida y sublimación personalizada. Define su misión, público objetivo, propuesta de valor integrando restauración de fotos con IA y una estructura de precios competitivos en pesos colombianos (COP)."
+                        </div>
+                    </div>
+
+                    <!-- Prompt 2 -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-700 text-xs font-bold">Prompt #2 • Identidad Visual y Logotipo Vectorial</span>
+                            <span class="text-xs text-slate-500 font-medium">Herramienta: Generador Vectorial & IA de Diseño</span>
+                        </div>
+                        <p class="text-xs text-slate-700"><strong>Propósito:</strong> Crear un logotipo limpio, escalable y simbólico que fusione el mundo de la fotografía con la marquetería y la iluminación creativa.</p>
+                        <div class="p-3 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs leading-relaxed">
+                            "Diseña un logotipo vectorial minimalista y elegante en código SVG para 'AuraFrame Studio'. Debe fusionar el contorno de un marco de retablo con bisel dorado, el lente central de una cámara fotográfica y un destello de luz que simbolice la IA. Usa degradados en dorado ámbar (#F59E0B, #D97706) sobre fondo azul medianoche (#0F172A)."
+                        </div>
+                    </div>
+
+                    <!-- Prompt 3 -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-700 text-xs font-bold">Prompt #3 • Generación de Recursos Gráficos de Producto</span>
+                            <span class="text-xs text-slate-500 font-medium">Herramienta: Midjourney / Adobe Firefly</span>
+                        </div>
+                        <p class="text-xs text-slate-700"><strong>Propósito:</strong> Obtener referencias visuales de alta estética para ambientar retablos decorativos, marquetería en madera roble y mugs sublimados.</p>
+                        <div class="p-3 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs leading-relaxed">
+                            "Fotografía editorial de producto en interiorismo moderno: pared minimalista color crema con un tríptico de retablos fotográficos enmarcados en madera de roble natural, iluminación cálida lateral, alta nitidez, estilo galería de arte contemporáneo, 8k, f/2.8."
+                        </div>
+                    </div>
+
+                    <!-- Prompt 4 -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-700 text-xs font-bold">Prompt #4 • Arquitectura Web Responsiva y Catálogo</span>
+                            <span class="text-xs text-slate-500 font-medium">Herramienta: Asistente de Código IA</span>
+                        </div>
+                        <p class="text-xs text-slate-700"><strong>Propósito:</strong> Estructurar la tienda online con HTML5, Tailwind CSS y JavaScript puro, incluyendo filtrado dinámico por categorías y diseño adaptable a móviles.</p>
+                        <div class="p-3 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs leading-relaxed">
+                            "Desarrolla la interfaz web de 'AuraFrame Studio' con paleta azul profundo (#0F172A), crema (#FDFBF7) y acentos dorados (#D97706). Implementa un catálogo filtrable en JavaScript con 9 productos de retablos, marquetería, sublimación y fotografía, con búsqueda en tiempo real y diseño 100% responsivo."
+                        </div>
+                    </div>
+
+                    <!-- Prompt 5 -->
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex flex-wrap items-center justify-between gap-2">
+                            <span class="px-2.5 py-1 rounded-lg bg-amber-500/15 text-amber-700 text-xs font-bold">Prompt #5 • Carrito Interactivo y Simulador de Personalización</span>
+                            <span class="text-xs text-slate-500 font-medium">Herramienta: Asistente de Código IA</span>
+                        </div>
+                        <p class="text-xs text-slate-700"><strong>Propósito:</strong> Programar la lógica del carrito de compras con envío automatizado a WhatsApp y un modal donde el cliente suba su foto y pruebe molduras.</p>
+                        <div class="p-3 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs leading-relaxed">
+                            "Crea un drawer lateral de carrito de compras en JavaScript que calcule subtotales en COP, aplique envío gratis por compras mayores a $150.000 y genere un resumen estructurado para enviar por WhatsApp. Añade un modal de vista rápida que permita cargar una imagen local con FileReader y cambiar el color del marco."
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 2: GIT & GITHUB -->
+                <div id="content-github" class="rubric-content hidden space-y-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-slate-900 text-white">
+                        <div>
+                            <h4 class="font-serif text-xl font-bold flex items-center gap-2">
+                                <i class="fa-brands fa-github text-amber-400"></i>
+                                <span>Repositorio Oficial & GitHub Pages</span>
+                            </h4>
+                            <p class="text-xs text-slate-400 mt-1">Control de versiones semántico, ramas organizadas y despliegue continuo.</p>
+                        </div>
+                        <a href="https://github.com/auraframe-studio/tienda-fotografia-ia" target="_blank" rel="noopener noreferrer" 
+                           class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs inline-flex items-center gap-2 shrink-0">
+                            <span>Abrir en GitHub</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Estructura del Repositorio -->
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <h5 class="font-bold text-slate-900 text-sm mb-3">Estructura del Repositorio</h5>
+                            <pre class="bg-slate-900 text-emerald-400 p-4 rounded-xl text-xs font-mono leading-relaxed overflow-x-auto">auraframe-studio-web/
+├── index.html          # Aplicación web completa
+├── README.md           # Documentación y prompts
+├── docs/
+│   ├── prompts-ia.md   # Registro de ingeniería de prompts
+│   └── arquitectura.md # Diagrama de flujo del carrito
+└── assets/
+    └── logo-auraframe.svg</pre>
+                        </div>
+
+                        <!-- Historial de Commits -->
+                        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                            <h5 class="font-bold text-slate-900 text-sm mb-3">Historial de Commits (Trazabilidad)</h5>
+                            <ul class="space-y-2.5 text-xs">
+                                <li class="p-2.5 rounded-lg bg-white border border-slate-200 flex items-start gap-2">
+                                    <span class="font-mono text-amber-600 font-bold">feat:</span>
+                                    <span class="text-slate-700">Inicialización del repositorio, identidad visual y logotipo vectorial SVG.</span>
+                                </li>
+                                <li class="p-2.5 rounded-lg bg-white border border-slate-200 flex items-start gap-2">
+                                    <span class="font-mono text-amber-600 font-bold">feat:</span>
+                                    <span class="text-slate-700">Implementación de catálogo filtrable (Retablos, Marquetería, Sublimación).</span>
+                                </li>
+                                <li class="p-2.5 rounded-lg bg-white border border-slate-200 flex items-start gap-2">
+                                    <span class="font-mono text-amber-600 font-bold">feat:</span>
+                                    <span class="text-slate-700">Desarrollo de carrito de compras interactivo y simulador de foto con IA.</span>
+                                </li>
+                                <li class="p-2.5 rounded-lg bg-white border border-slate-200 flex items-start gap-2">
+                                    <span class="font-mono text-emerald-600 font-bold">docs:</span>
+                                    <span class="text-slate-700">Integración de Bitácora IA y despliegue en GitHub Pages.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 3: GESTIÓN EN NOTION -->
+                <div id="content-notion" class="rubric-content hidden space-y-5">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-2xl bg-amber-50 border border-amber-200">
+                        <div>
+                            <h4 class="font-serif text-xl font-bold text-slate-900 flex items-center gap-2">
+                                <i class="fa-solid fa-list-check text-amber-600"></i>
+                                <span>Tablero Kanban & Gestión Ágil en Notion</span>
+                            </h4>
+                            <p class="text-xs text-slate-600 mt-1">Planificación de sprints, asignación de roles y seguimiento de entregables.</p>
+                        </div>
+                        <a href="https://www.notion.so/" target="_blank" rel="noopener noreferrer" 
+                           class="px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs inline-flex items-center gap-2 shrink-0">
+                            <span>Ir al Workspace Notion</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold">Completado (100%)</span>
+                            <h5 class="font-bold text-slate-900 text-sm mt-3">Fase 1: Ideación & Branding</h5>
+                            <p class="text-xs text-slate-600 mt-1">Definición del emprendimiento AuraFrame Studio, paleta cromática y logo SVG.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold">Completado (100%)</span>
+                            <h5 class="font-bold text-slate-900 text-sm mt-3">Fase 2: Desarrollo Web & IA</h5>
+                            <p class="text-xs text-slate-600 mt-1">Programación de catálogo, carrito dinámico, personalizador y pruebas responsivas.</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200">
+                            <span class="px-2.5 py-1 rounded-md bg-emerald-100 text-emerald-800 text-xs font-bold">Completado (100%)</span>
+                            <h5 class="font-bold text-slate-900 text-sm mt-3">Fase 3: GitHub & Sustentación</h5>
+                            <p class="text-xs text-slate-600 mt-1">Documentación de 5 prompts, despliegue web y preparación de presentación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PESTAÑA 4: TABLA DE CUMPLIMIENTO DE RÚBRICA -->
+                <div id="content-rubrica" class="rubric-content hidden">
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200">
+                        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+                            <thead>
+                                <tr class="bg-slate-900 text-white">
+                                    <th class="p-3.5 font-bold">Criterio de Evaluación</th>
+                                    <th class="p-3.5 font-bold">Peso</th>
+                                    <th class="p-3.5 font-bold">Evidencia Implementada en el Proyecto</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 bg-white">
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Conceptualización del emprendimiento</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">10%</td>
+                                    <td class="p-3.5 text-slate-600">Sección "Sobre Nosotros" con misión, público objetivo y propuesta de valor con IA.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Ingeniería de prompts</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">15%</td>
+                                    <td class="p-3.5 text-slate-600">5 prompts documentados con herramienta, propósito y texto exacto en la Bitácora IA.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Identidad visual e imágenes con IA</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">15%</td>
+                                    <td class="p-3.5 text-slate-600">Logotipo vectorial SVG propio, paleta coherente y galería visual de productos.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Diseño y funcionalidad web</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">30%</td>
+                                    <td class="p-3.5 text-slate-600">Tienda funcional con filtros, carrito de compras, personalizador de foto y diseño responsivo.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Git y GitHub</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">15%</td>
+                                    <td class="p-3.5 text-slate-600">Estructura de repositorio, trazabilidad de commits y enlace directo en Footer y Bitácora.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3.5 font-bold text-slate-900">Gestión en Notion & Sustentación</td>
+                                    <td class="p-3.5 font-semibold text-amber-600">15%</td>
+                                    <td class="p-3.5 text-slate-600">Tablero de seguimiento de tareas en Notion y arquitectura clara para sustentación.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== NOTIFICACIÓN TOAST FLOTANTE (SIN ALERTAS NATIVAS) ==================== -->
+    <div id="toast-notification" class="fixed bottom-5 right-5 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-slate-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-amber-500/40 flex items-center gap-3 max-w-sm">
+            <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
+                <i id="toast-icon" class="fa-solid fa-check"></i>
+            </div>
+            <div>
+                <p id="toast-title" class="text-xs font-bold text-amber-400">¡Agregado al carrito!</p>
+                <p id="toast-msg" class="text-xs text-slate-200 mt-0.5">Producto añadido correctamente.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== LÓGICA JAVASCRIPT DE LA TIENDA ==================== -->
+    <script>
+        // 1. BASE DE DATOS DE PRODUCTOS (9 Productos reales en Pesos Colombianos - COP)
+        const products = [
+            {
+                id: 1,
+                name: "Retablo Fotográfico Laminado Mate",
+                category: "retablos",
+                categoryLabel: "Retablos y Cuadros",
+                basePrice: 55000,
+                image: "https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?auto=format&fit=crop&w=800&q=80",
+                badge: "Más Vendido",
+                description: "Impresión fotográfica en alta definición montada sobre MDF de 9mm con laminado protector anti-reflejo y soporte listo para colgar.",
+                variants: [
+                    { label: "30 x 40 cm", price: 55000 },
+                    { label: "40 x 60 cm", price: 85000 },
+                    { label: "60 x 90 cm", price: 135000 }
+                ]
+            },
+            {
+                id: 2,
+                name: "Set Tríptico Galería Madera Roble",
+                category: "retablos",
+                categoryLabel: "Retablos y Cuadros",
+                basePrice: 149000,
+                image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80",
+                badge: "Colección Premium",
+                description: "Conjunto de 3 cuadros coordinados con moldura en madera natural de roble, vidrio antirreflejo y mejora de nitidez con IA incluida.",
+                variants: [
+                    { label: "3 piezas (30x40 cm)", price: 149000 },
+                    { label: "3 piezas (40x60 cm)", price: 215000 }
+                ]
+            },
+            {
+                id: 3,
+                name: "Marco Flotante en Madera Maciza",
+                category: "marqueteria",
+                categoryLabel: "Marquetería a Medida",
+                basePrice: 78000,
+                image: "https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80",
+                badge: "Artesanal",
+                description: "Enmarcado tipo caja flotante que crea una separación elegante de 1 cm entre tu obra o fotografía y la moldura de madera certificada.",
+                variants: [
+                    { label: "35 x 50 cm", price: 78000 },
+                    { label: "50 x 70 cm", price: 118000 },
+                    { label: "70 x 100 cm", price: 169000 }
+                ]
+            },
+            {
+                id: 4,
+                name: "Enmarcado Clásico con Passepartout",
+                category: "marqueteria",
+                categoryLabel: "Marquetería a Medida",
+                basePrice: 68000,
+                image: "https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&w=800&q=80",
+                badge: "Estilo Museo",
+                description: "Marquetería fina con cartulina libre de ácido (passepartout blanco marfil) que realza retratos familiares, diplomas y arte.",
+                variants: [
+                    { label: "25 x 35 cm", price: 68000 },
+                    { label: "40 x 50 cm", price: 96000 }
+                ]
+            },
+            {
+                id: 5,
+                name: "Mug Mágico Sublimado Personalizado",
+                category: "sublimacion",
+                categoryLabel: "Sublimación Personalizada",
+                basePrice: 28000,
+                image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&w=800&q=80",
+                badge: "Regalo Ideal",
+                description: "Pocillo de cerámica AAA de 11 oz. Negro mate en frío que revela tu fotografía y mensaje secreto al verter bebida caliente.",
+                variants: [
+                    { label: "11 oz Individual", price: 28000 },
+                    { label: "Dúo Pareja (2 Mugs)", price: 50000 }
+                ]
+            },
+            {
+                id: 6,
+                name: "Termo Térmico Acero Sublimado HD",
+                category: "sublimacion",
+                categoryLabel: "Sublimación Personalizada",
+                basePrice: 45000,
+                image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=800&q=80",
+                badge: "Alta Durabilidad",
+                description: "Botella térmica doble pared en acero inoxidable de 500 ml sublimada en 360° con colores vibrantes resistentes a rayones.",
+                variants: [
+                    { label: "500 ml Blanco Brillo", price: 45000 },
+                    { label: "500 ml Plata Satinado", price: 48000 }
+                ]
+            },
+            {
+                id: 7,
+                name: "Cojín Decorativo Lino Sublimado",
+                category: "sublimacion",
+                categoryLabel: "Sublimación Personalizada",
+                basePrice: 42000,
+                image: "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?auto=format&fit=crop&w=800&q=80",
+                badge: "Nuevo",
+                description: "Cojín de 45x45 cm en tela tipo lino suave con cierre invisible, relleno siliconado hipoalergénico y estampado fotográfico lavable.",
+                variants: [
+                    { label: "45 x 45 cm (1 Cara)", price: 42000 },
+                    { label: "45 x 45 cm (Doble Cara)", price: 54000 }
+                ]
+            },
+            {
+                id: 8,
+                name: "Pack 24 Fotos Estilo Polaroid + Cuerda",
+                category: "fotografia",
+                categoryLabel: "Fotografía Impresa",
+                basePrice: 34000,
+                image: "https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=800&q=80",
+                badge: "Tendencia",
+                description: "24 impresiones en papel fotográfico lustre de 260g con borde vintage personalizable, incluye mini pinzas de madera y yute.",
+                variants: [
+                    { label: "Pack 24 Fotos (9x11 cm)", price: 34000 },
+                    { label: "Pack 48 Fotos + Luces LED", price: 62000 }
+                ]
+            },
+            {
+                id: 9,
+                name: "Restauración IA + Ampliación Fotográfica",
+                category: "fotografia",
+                categoryLabel: "Fotografía Impresa",
+                basePrice: 49000,
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80",
+                badge: "Servicio IA",
+                description: "Recuperamos fotos antiguas, rasgadas o borrosas mediante IA generativa, colorización natural e impresión en papel Fine Art.",
+                variants: [
+                    { label: "Digital + Impresión 20x30", price: 49000 },
+                    { label: "Digital + Retablo 30x40", price: 79000 }
+                ]
+            }
+        ];
+
+        // 2. ESTADO GLOBAL DE LA APLICACIÓN
+        let currentCategory = 'todos';
+        let cart = [];
+        let activeQuickViewProduct = null;
+        let selectedVariantIndex = 0;
+        let isAIEnhanced = false;
+
+        // Formateador de Moneda en Pesos Colombianos (COP)
+        const formatCOP = (value) => {
+            return new Intl.NumberFormat('es-CO', {
+                style: 'currency',
+                currency: 'COP',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(value);
+        };
+
+        // 3. RENDERIZADO DEL CATÁLOGO DE PRODUCTOS
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            const noResults = document.getElementById('no-results');
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+
+            const filtered = products.filter(p => {
+                const matchesCategory = currentCategory === 'todos' || p.category === currentCategory;
+                const matchesSearch = p.name.toLowerCase().includes(searchTerm) || 
+                                      p.description.toLowerCase().includes(searchTerm) ||
+                                      p.categoryLabel.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+
+            grid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                noResults.classList.remove('hidden');
+                return;
+            } else {
+                noResults.classList.add('hidden');
+            }
+
+            filtered.forEach(product => {
+                const card = document.createElement('article');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200/80 transition-all duration-300 flex flex-col group";
+                
+                card.innerHTML = `
+                    <!-- Imagen con Badge y Botón Vista Rápida -->
+                    <div class="relative aspect-[4/3] overflow-hidden bg-slate-100">
+                        <img src="${product.image}" 
+                             onerror="this.src='https://placehold.co/600x450/1e293b/f59e0b?text=${encodeURIComponent(product.name)}'"
+                             alt="${product.name}" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-slate-900/85 backdrop-blur-xs text-amber-400 text-[11px] font-bold tracking-wide">
+                            ${product.badge}
+                        </span>
+
+                        <button onclick="openQuickView(${product.id})" 
+                                class="absolute bottom-3 right-3 px-3.5 py-2 rounded-xl bg-white/95 hover:bg-amber-500 text-slate-900 text-xs font-bold shadow-md transition-all flex items-center gap-1.5 opacity-95 group-hover:opacity-100">
+                            <i class="fa-solid fa-wand-magic-sparkles text-amber-600"></i>
+                            <span>Personalizar</span>
+                        </button>
+                    </div>
+
+                    <!-- Información del Producto -->
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">${product.categoryLabel}</span>
+                            <h3 class="font-serif text-xl font-bold text-slate-900 mt-1 group-hover:text-amber-600 transition-colors">
+                                ${product.name}
+                            </h3>
+                            <p class="text-slate-600 text-xs sm:text-sm mt-2 line-clamp-2 leading-relaxed">
+                                ${product.description}
+                            </p>
+                        </div>
+
+                        <div class="mt-5 pt-4 border-t border-slate-100">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <span class="text-[11px] text-slate-400 block">Desde</span>
+                                    <span class="text-lg font-bold text-slate-900">${formatCOP(product.basePrice)}</span>
+                                </div>
+                                <span class="text-xs text-slate-500 bg-slate-100 px-2.5 py-1 rounded-lg">
+                                    ${product.variants[0].label}
+                                </span>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-2">
+                                <button onclick="openQuickView(${product.id})" class="px-3 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold transition-colors">
+                                    Opciones
+                                </button>
+                                <button onclick="addToCart(${product.id}, 0)" class="px-3 py-2.5 rounded-xl bg-slate-900 hover:bg-amber-600 text-white text-xs font-bold transition-colors flex items-center justify-center gap-1.5">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    <span>Agregar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filtros por categoría
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.className = "cat-btn active px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-slate-900 text-white shadow-md";
+                } else {
+                    btn.className = "cat-btn px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200 bg-white text-slate-700 border border-slate-200 hover:border-amber-500";
+                }
+            });
+            renderProducts();
+        }
+
+        function filterProducts() {
+            renderProducts();
+        }
+
+        function resetFilters() {
+            document.getElementById('search-input').value = '';
+            setCategory('todos');
+        }
+
+        // 4. LÓGICA DEL CARRITO DE COMPRAS
+        function addToCart(productId, variantIdx = 0, customNote = '', customFrame = 'Estándar') {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            const variant = product.variants[variantIdx] || product.variants[0];
+            const uniqueKey = `${product.id}-${variant.label}-${customFrame}-${customNote}`;
+
+            const existingItem = cart.find(item => item.key === uniqueKey);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    key: uniqueKey,
+                    id: product.id,
+                    name: product.name,
+                    variantLabel: variant.label,
+                    price: variant.price,
+                    image: product.image,
+                    qty: 1,
+                    note: customNote,
+                    frame: customFrame
+                });
+            }
+
+            updateCartUI();
+            showToast('¡Producto agregado!', `${product.name} (${variant.label}) está en tu carrito.`);
+        }
+
+        function updateItemQty(key, delta) {
+            const item = cart.find(i => i.key === key);
+            if (!item) return;
+
+            item.qty += delta;
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.key !== key);
+            }
+            updateCartUI();
+        }
+
+        function removeFromCart(key) {
+            cart = cart.filter(i => i.key !== key);
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const container = document.getElementById('cart-items-container');
+            const badge = document.getElementById('cart-badge');
+            const headerCount = document.getElementById('cart-header-count');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            const shippingEl = document.getElementById('cart-shipping');
+            const totalEl = document.getElementById('cart-total');
+
+            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const shipping = subtotal === 0 ? 0 : (subtotal >= 150000 ? 0 : 12000);
+            const total = subtotal + shipping;
+
+            badge.textContent = totalItems;
+            headerCount.textContent = `${totalItems} ${totalItems === 1 ? 'ítem' : 'ítems'}`;
+            subtotalEl.textContent = formatCOP(subtotal);
+            shippingEl.textContent = subtotal === 0 ? '$0' : (shipping === 0 ? 'GRATIS' : formatCOP(shipping));
+            totalEl.textContent = formatCOP(total);
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="h-full flex flex-col items-center justify-center text-center py-12">
+                        <div class="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                        </div>
+                        <h4 class="font-serif text-lg font-bold text-slate-800">Tu carrito está vacío</h4>
+                        <p class="text-xs text-slate-500 max-w-xs mt-1">Explora nuestros retablos, marcos y productos sublimados para inmortalizar tus recuerdos.</p>
+                        <button onclick="toggleCart()" class="mt-5 px-5 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400 transition">
+                            Ir al Catálogo
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 rounded-xl object-cover shrink-0">
+                    <div class="flex-1 min-w-0">
+                        <div class="flex justify-between items-start gap-2">
+                            <h4 class="font-bold text-slate-900 text-xs sm:text-sm truncate">${item.name}</h4>
+                            <button onclick="removeFromCart('${item.key}')" class="text-slate-400 hover:text-rose-600 text-xs" title="Eliminar">
+                                <i class="fa-solid fa-trash"></i>
+                            </button>
+                        </div>
+                        <p class="text-[11px] text-slate-500 mt-0.5">${item.variantLabel} • Marco: ${item.frame}</p>
+                        ${item.note ? `<p class="text-[11px] text-amber-700 italic mt-0.5 truncate">"${item.note}"</p>` : ''}
+                        
+                        <div class="flex items-center justify-between mt-3">
+                            <span class="font-bold text-slate-900 text-xs sm:text-sm">${formatCOP(item.price * item.qty)}</span>
+                            <div class="flex items-center gap-2 bg-white border border-slate-200 rounded-lg px-2 py-1">
+                                <button onclick="updateItemQty('${item.key}', -1)" class="text-slate-600 hover:text-amber-600 text-xs font-bold px-1">-</button>
+                                <span class="text-xs font-bold text-slate-900 min-w-[16px] text-center">${item.qty}</span>
+                                <button onclick="updateItemQty('${item.key}', 1)" class="text-slate-600 hover:text-amber-600 text-xs font-bold px-1">+</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleCart() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-overlay');
+            const isClosed = drawer.classList.contains('translate-x-full');
+
+            if (isClosed) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // Finalizar pedido por WhatsApp
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                showToast('Carrito vacío', 'Agrega al menos un producto antes de finalizar.', 'fa-circle-info');
+                return;
+            }
+
+            let message = "Hola *AuraFrame Studio*! Quisiera realizar el siguiente pedido:%0A%0A";
+            cart.forEach((item, index) => {
+                message += `${index + 1}. *${item.name}* (${item.variantLabel}) x${item.qty} - ${formatCOP(item.price * item.qty)}%0A`;
+                if (item.frame !== 'Estándar') message += `   - Acabado: ${item.frame}%0A`;
+                if (item.note) message += `   - Dedicatoria: "${item.note}"%0A`;
+            });
+
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const shipping = subtotal >= 150000 ? 0 : 12000;
+            message += `%0A*Total a pagar:* ${formatCOP(subtotal + shipping)}%0AQuedo atento para enviar mis fotografías en alta calidad.`;
+
+            window.open(`https://wa.me/573104897210?text=${message}`, '_blank');
+        }
+
+        // Simular compra directa
+        function simulateDirectOrder() {
+            if (cart.length === 0) {
+                showToast('Carrito vacío', 'Agrega productos para simular la compra.', 'fa-circle-info');
+                return;
+            }
+            cart = [];
+            updateCartUI();
+            toggleCart();
+            showToast('¡Pedido Confirmado!', 'Gracias por comprar en AuraFrame Studio. Te enviamos el resumen a tu correo.', 'fa-circle-check');
+        }
+
+        // 5. MODAL DE VISTA RÁPIDA & PERSONALIZADOR CON SUBIDA DE FOTO
+        let currentFrameLabel = 'Negro Mate';
+
+        function openQuickView(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+
+            activeQuickViewProduct = product;
+            selectedVariantIndex = 0;
+            isAIEnhanced = false;
+            currentFrameLabel = 'Negro Mate';
+
+            document.getElementById('qv-category').textContent = product.categoryLabel;
+            document.getElementById('qv-title').textContent = product.name;
+            document.getElementById('qv-desc').textContent = product.description;
+            document.getElementById('qv-price').textContent = formatCOP(product.variants[0].price);
+            document.getElementById('qv-image').src = product.image;
+            document.getElementById('qv-image').style.filter = 'none';
+            document.getElementById('qv-note').value = '';
+            document.getElementById('ai-enhance-text').textContent = 'Simular Mejora IA 4K';
+            document.getElementById('ai-status-msg').textContent = 'Sube una imagen de tu dispositivo para probar cómo lucirá impresa.';
+
+            setFrameStyle('negro');
+            renderQuickViewVariants();
+
+            document.getElementById('qv-add-btn').onclick = () => {
+                const note = document.getElementById('qv-note').value.trim();
+                addToCart(product.id, selectedVariantIndex, note, currentFrameLabel);
+                closeQuickView();
+                toggleCart();
+            };
+
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function renderQuickViewVariants() {
+            const container = document.getElementById('qv-variants');
+            container.innerHTML = activeQuickViewProduct.variants.map((v, idx) => `
+                <button type="button" onclick="selectVariant(${idx})" 
+                        class="px-3 py-2 rounded-xl border text-xs font-bold text-left transition-all ${idx === selectedVariantIndex ? 'border-amber-500 bg-amber-50 text-slate-900' : 'border-slate-200 bg-white text-slate-600 hover:border-slate-300'}">
+                    <span class="block">${v.label}</span>
+                    <span class="text-amber-600">${formatCOP(v.price)}</span>
+                </button>
+            `).join('');
+        }
+
+        function selectVariant(idx) {
+            selectedVariantIndex = idx;
+            document.getElementById('qv-price').textContent = formatCOP(activeQuickViewProduct.variants[idx].price);
+            renderQuickViewVariants();
+        }
+
+        function setFrameStyle(style) {
+            const wrapper = document.getElementById('preview-frame-wrapper');
+            if (style === 'negro') {
+                wrapper.className = "transition-all duration-300 shadow-2xl p-3.5 bg-slate-900 rounded-lg max-w-[280px] w-full aspect-square flex items-center justify-center overflow-hidden";
+                currentFrameLabel = 'Negro Mate';
+            } else if (style === 'roble') {
+                wrapper.className = "transition-all duration-300 shadow-2xl p-3.5 bg-amber-800 rounded-lg max-w-[280px] w-full aspect-square flex items-center justify-center overflow-hidden";
+                currentFrameLabel = 'Madera Roble';
+            } else if (style === 'dorado') {
+                wrapper.className = "transition-all duration-300 shadow-2xl p-3.5 bg-gradient-to-br from-amber-400 via-amber-500 to-amber-700 rounded-lg max-w-[280px] w-full aspect-square flex items-center justify-center overflow-hidden";
+                currentFrameLabel = 'Dorado Galería';
+            } else {
+                wrapper.className = "transition-all duration-300 shadow-2xl p-0 bg-transparent rounded-lg max-w-[280px] w-full aspect-square flex items-center justify-center overflow-hidden";
+                currentFrameLabel = 'Retablo Sin Borde';
+            }
+        }
+
+        // Cargar fotografía del usuario desde su dispositivo
+        function handleCustomPhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('qv-image').src = e.target.result;
+                document.getElementById('ai-status-msg').textContent = `Foto "${file.name}" cargada en la vista previa.`;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        // Simular mejora de nitidez y color con IA
+        function toggleAIEnhance() {
+            const img = document.getElementById('qv-image');
+            const btnText = document.getElementById('ai-enhance-text');
+            const statusMsg = document.getElementById('ai-status-msg');
+
+            isAIEnhanced = !isAIEnhanced;
+            if (isAIEnhanced) {
+                img.style.filter = 'contrast(1.12) saturate(1.18) brightness(1.04)';
+                btnText.textContent = 'Mejora IA Activa ✓';
+                statusMsg.textContent = 'IA Aplicada: Contraste equilibrado, reducción de ruido y perfil de color de impresión.';
+            } else {
+                img.style.filter = 'none';
+                btnText.textContent = 'Simular Mejora IA 4K';
+                statusMsg.textContent = 'Vista previa original sin filtro de mejora.';
+            }
+        }
+
+        function closeQuickView() {
+            const modal = document.getElementById('quickview-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // 6. MODAL DE BITÁCORA IA & RÚBRICA UNIVERSITARIA
+        function openRubricModal(tabName = 'prompts') {
+            const modal = document.getElementById('rubric-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            switchRubricTab(tabName);
+        }
+
+        function closeRubricModal() {
+            const modal = document.getElementById('rubric-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function switchRubricTab(tabName) {
+            document.querySelectorAll('.rubric-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.rubric-tab').forEach(btn => {
+                btn.className = "rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900";
+            });
+
+            document.getElementById(`content-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).className = "rubric-tab px-4 py-2.5 rounded-t-xl text-xs sm:text-sm font-bold bg-white text-slate-900 border-t border-x border-slate-200";
+        }
+
+        // 7. FORMULARIO DE CONTACTO Y MENÚ MÓVIL
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const form = document.getElementById('contact-form');
+            const successBox = document.getElementById('contact-success');
+
+            successBox.classList.remove('hidden');
+            form.reset();
+            showToast('Mensaje enviado', 'Nos pondremos en contacto contigo pronto.');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.toggle('hidden');
+            
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+
+        // 8. NOTIFICACIÓN TOAST PERSONALIZADA
+        let toastTimeout;
+        function showToast(title, message, iconClass = 'fa-check') {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-msg').textContent = message;
+            document.getElementById('toast-icon').className = `fa-solid ${iconClass}`;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3200);
+        }
+
+        // Inicialización al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            renderProducts();
+            updateCartUI();
+        });
+    </script>
+</body>
+</html>
